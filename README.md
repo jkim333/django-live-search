@@ -4,13 +4,13 @@ This is a simple website built with Django and Javascript to test out the live s
 
 ## Quick demo
 
-![ezgif com-gif-maker](https://user-images.githubusercontent.com/69041975/115993292-80c74880-a615-11eb-9e5e-00d729a1287f.gif)
+![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/69041975/116039447-16161b80-a6ae-11eb-85e6-8e0cd5be1445.gif)
 
 ---
 
 ## Project Summary
 
-The website displays a single search bar. As the user starts typing in the search bar, the search results are updated live.
+The website displays a single search bar. As the user starts typing in the search bar, the search results get updated live.
 
 ---
 
