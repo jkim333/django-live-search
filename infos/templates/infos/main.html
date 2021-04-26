@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <input type="text" id="search_here" placeholder="type here to search..." class="form-control mb-3">
+  <div id="box">
+    {% for item in object_list %}
+      {{ item }} <br>
+    {% endfor %}
+  </div>
+  {{ qs_json|json_script:"data" }}
+{% endblock content %}
+
+{% block scripts %}
+<script>
+  const data = JSON.parse(JSON.parse(document.getElementById('data').textContent));
+  const input = document.getElementById('search_here');
+  const box = document.getElementById('box');
+
+  let filteredArr = [];
+  console.log(data);
+  input.addEventListener('keyup', e => {
+    box.innerHTML = '';
+    filteredArr = data.filter(object => {
+      if (object.name.toLowerCase().search(e.target.value.toLowerCase()) >= 0) {
+        return object;
+      }
+    });
+
+    let output = '';
+
+    if (filteredArr.length > 0) {
+      filteredArr.forEach(item => {
+        output += `${item.name}<br>`
+      });
+    } else {
+      output = 'No results found...'
+    }
+
+    box.innerHTML = output;
+  });
+</script>
+{% endblock scripts %}
